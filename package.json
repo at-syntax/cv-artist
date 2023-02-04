@@ -1,0 +1,56 @@
+{
+  "name": "cv-artist",
+  "private": true,
+  "version": "1.0.0",
+  "description": "Generate resume",
+  "scripts": {
+    "start": "lerna run start --stream",
+    "compile": "lerna run compile --stream",
+    "build": "yarn compile && lerna run build --parallel",
+    "lint": "lerna run lint --stream",
+    "test": "test"
+  },
+  "repository": "git+https://github.com/saikat-samanta/cv-artist.git",
+  "keywords": [
+    "lerna",
+    "typescript",
+    "react"
+  ],
+  "author": "saikat-samanta <saikatsamanta737@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/saikat-samanta/cv-artist/issues"
+  },
+  "homepage": "https://github.com/saikat-samanta/cv-artist#readme",
+  "workspaces": {
+    "packages": [
+      "packages/*"
+    ],
+    "nohoist": [
+      "**/*"
+    ]
+  },
+  "devDependencies": {
+    "@arkweid/lefthook": "^0.7.7",
+    "@commitlint/config-conventional": "^17.4.2",
+    "@types/react": "^18.0.27",
+    "@types/react-dom": "^18.0.10",
+    "@typescript-eslint/eslint-plugin": "^5.50.0",
+    "@typescript-eslint/parser": "^5.50.0",
+    "@commitlint/cli": "^17.4.2",
+    "css-loader": "^6.7.3",
+    "eslint": "^8.33.0",
+    "eslint-plugin-react": "^7.32.2",
+    "html-webpack-plugin": "^5.5.0",
+    "lerna": "^6.4.1",
+    "mini-css-extract-plugin": "^2.7.2",
+    "prettier": "^2.8.3",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "ts-loader": "^9.4.2",
+    "typescript": "^4.9.4",
+    "webpack": "^5.75.0",
+    "webpack-cli": "^5.0.1",
+    "webpack-dev-server": "^4.11.1"
+  }
+}

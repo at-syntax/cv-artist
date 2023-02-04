@@ -1,0 +1,45 @@
+{
+  "name": "@cv-artist/schemas",
+  "version": "0.0.0",
+  "description": "TS schemas",
+  "keywords": [
+    "schema",
+    "Typescript"
+  ],
+  "author": "saikat-samanta <saikatsamanta737@gmail.com>",
+  "homepage": "https://github.com/saikat-samanta/cv-artist/tree/main/packages/schemas#readme",
+  "license": "MIT",
+  "exports": {
+    "import": "./dist/tsc/index.js",
+    "require": "./dist/umd/index.js"
+  },
+  "main": "dist/umd/index.js",
+  "module": "dist/tsc/index.js",
+  "types": "dist/types/index.d.ts",
+  "directories": {
+    "dist": "dist"
+  },
+  "files": [
+    "dist"
+  ],
+  "publishConfig": {
+    "registry": "https://registry.yarnpkg.com"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/saikat-samanta/cv-artist.git"
+  },
+  "scripts": {
+    "start": "node dist/umd/index.js",
+    "build": "webpack --config ../../webpack.config.js",
+    "compile": "tsc --build",
+    "lint": "eslint '**/*.*' --fix --ignore-path ../../.eslintignore --cache",
+    "test": "node ./__tests__/schemas.test.js"
+  },
+  "bugs": {
+    "url": "https://github.com/saikat-samanta/cv-artist/issues"
+  },
+  "dependencies": {
+    "zod": "^3.20.2"
+  }
+}

@@ -1,0 +1,39 @@
+# Build/test/docs artefacts | mocks
+dist
+node_modules
+docs
+coverage
+.nyc_output
+storybook-static
+.lighthouseci
+__mocks__
+scripts
+
+# Unexpected file extensions
+*.json
+*.html
+*.lock
+*.md
+*.scss
+*.css
+*.png
+*.jpg
+*.jpeg
+*.svg
+*.ico
+*.log
+*.config.js
+*.setup.ts
+*.ejs
+*.sql
+*.rest
+*.rdb
+
+# Unexpected files
+.eslintignore
+.prettierignore
+.gitignore
+.eslintcache
+.DS_STORE
+
+# Special files

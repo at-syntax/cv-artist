@@ -1,0 +1,29 @@
+dist
+node_modules
+docs
+coverage
+.nyc_output
+storybook-static
+.lighthouseci
+
+# Unexpected file extensions
+*.lock
+*.png
+*.svg
+*.ico
+*.jpg
+*.jpeg
+*.log
+*.sql
+*.rest
+*.ejs
+
+# Unexpected files
+.eslintignore
+.prettierignore
+.gitignore
+.eslintcache
+.DS_STORE
+
+# Special files
+CHANGELOG.md

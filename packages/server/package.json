@@ -1,0 +1,35 @@
+{
+  "name": "@cv-artist/server",
+  "version": "0.0.0",
+  "description": "Server side",
+  "keywords": [
+    "Node",
+    "Typescript"
+  ],
+  "author": "saikat-samanta <saikatsamanta737@gmail.com>",
+  "homepage": "https://github.com/saikat-samanta/cv-artist/tree/main/packages/server#readme",
+  "license": "MIT",
+  "main": "dist/index.js",
+  "directories": {
+    "dist": "dist"
+  },
+  "files": [
+    "dist"
+  ],
+  "publishConfig": {
+    "registry": "https://registry.yarnpkg.com"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/at-syntax/cv-artist.git"
+  },
+  "scripts": {
+    "build": "webpack --config ../../webpack.config.js",
+    "compile": "tsc --build",
+    "lint": "eslint '**/*.*' --fix --ignore-path ../../.eslintignore --cache",
+    "test": "node ./__tests__/server.test.js"
+  },
+  "bugs": {
+    "url": "https://github.com/at-syntax/cv-artist/issues"
+  }
+}

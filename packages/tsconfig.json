@@ -1,0 +1,25 @@
+{
+    /**
+     * https://www.typescriptlang.org/docs/handbook/project-references.html#overall-structure
+     * Another good practice is to have a “solution” tsconfig.json file that simply has references
+     * to all of your leaf-node projects and sets files to an empty array (otherwise the solution
+     * file will cause double compilation of files). This will prevent an incorrect invocation of
+     * tsc without -b from trying to build the entire packages folder source files as one compilation
+     * (which will fail, but drop a bunch of .js files in random places as an annoying side effect).
+     **/
+    "files": [],
+    "references": [
+        {
+            "path": "./components"
+        },
+        {
+            "path": "./schemas"
+        },
+        {
+            "path": "./web"
+        },
+        {
+            "path": "./server"
+        },
+    ]
+}

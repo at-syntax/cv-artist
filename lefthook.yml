@@ -1,0 +1,16 @@
+pre-commit:
+  parallel: true
+  commands:
+    check-branch:
+      run: node ./scripts/protect-branch.js
+    lint:
+      glob: "*.{js,ts,jsx,tsx}"
+      run: yarn eslint {staged_files}
+    types:
+      glob: "*.{js,ts, jsx, tsx}"
+      run: yarn compile
+commit-msg:
+  parallel: true
+  commands:
+    commitlint:
+      run: yarn commitlint --edit

@@ -1,0 +1,12 @@
+dist
+node_modules
+docs
+coverage
+.nyc_output
+storybook-static
+*.log
+*.rdb
+.eslintcache
+.DS_STORE
+.env
+.lighthouseci
