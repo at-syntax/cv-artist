@@ -2,7 +2,6 @@ import cors from "cors";
 import express from "express";
 import type { NextFunction, Request, Response } from "express";
 
-// # express app
 const app = express();
 const PORT = process.env.PORT || 4000;
 

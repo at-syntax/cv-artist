@@ -79,7 +79,7 @@ function spawnProcess({ command, args, cwd }) {
 }
 
 /**
- * Returns internal dependencies' graph (@manufac-analytics/xyz packages only)
+ * Returns internal dependencies' graph (@cv-artist/xyz packages only)
  * @param {boolean} isMermaid Indicate whether the dependency graph should be in Mermaid Markdown format.
  */
 async function getInternalDependenyGraph(isMermaid) {
