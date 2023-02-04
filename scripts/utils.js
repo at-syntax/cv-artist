@@ -48,41 +48,11 @@ async function execProcess(command) {
   return execPromise;
 }
 
-function spawnProcess({ command, args, cwd }) {
-  const taskPromise = new Promise((resolve, reject) => {
-    const commandString = `${command} ${args.join(" ")}`;
-
-    console.log(`Starting ${commandString}`);
-
-    const handle = spawn(command, args, { cwd });
-
-    handle.stdout.on("data", (data) => {
-      console.log(`stdout: ${data}`);
-    });
-
-    handle.stderr.on("data", (data) => {
-      console.log(`stderr: ${data}`);
-    });
-
-    handle.on("close", (code) => {
-      console.log(`${commandString} successful. Child process exited with code ${code}.`);
-      resolve(true);
-    });
-
-    handle.stderr.on("error", (data) => {
-      console.error(`${commandString} failed. Error: ${data}`);
-      reject(false);
-    });
-  });
-
-  return taskPromise;
-}
-
 /**
  * Returns internal dependencies' graph (@cv-artist/xyz packages only)
  * @param {boolean} isMermaid Indicate whether the dependency graph should be in Mermaid Markdown format.
  */
-async function getInternalDependenyGraph(isMermaid) {
+async function getInternalDependencyGraph(isMermaid) {
   let graph = await execProcess("yarn workspaces info");
 
   // Remove external dependencies from the graph
@@ -112,11 +82,11 @@ async function getInternalDependenyGraph(isMermaid) {
 async function getPortsDictionary() {
   let graph = await execProcess("yarn workspaces info");
   const dependencies = Object.keys(graph);
-  const basePortNumber = 6001;
+  const basePortNumber = 3000;
   const portsDictionary = dependencies.reduce((acc, curr) => {
     return { ...acc, [curr]: basePortNumber + Object.keys(acc).length };
   }, {});
   return portsDictionary;
 }
 
-module.exports = { getReleaseTag, execProcess, spawnProcess, getInternalDependenyGraph, getPortsDictionary };
+module.exports = { getReleaseTag, execProcess, getInternalDependencyGraph, getPortsDictionary };

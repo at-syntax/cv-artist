@@ -34,6 +34,7 @@
     "compile:schemas": "lerna run --scope @cv-artist/schemas compile --stream --include-dependencies",
     "compile:server": "lerna run --scope @cv-artist/server compile --stream --include-dependencies",
     "compile:web": "lerna run --scope @cv-artist/web compile --stream --include-dependencies",
+    "graph": "node ./scripts/generate-dependency-graph.js",
     "lint": "lerna run lint --stream",
     "lint:components": "lerna run --scope @cv-artist/components lint --stream",
     "lint:schemas": "lerna run --scope @cv-artist/schemas lint --stream",
