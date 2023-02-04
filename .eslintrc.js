@@ -5,7 +5,9 @@ module.exports = {
     node: true,
   },
   extends: [
-    "airbnb-base",
+    "airbnb",
+    "airbnb-typescript",
+    "airbnb/hooks",
     "eslint:recommended",
     "plugin:react/recommended",
     "plugin:@typescript-eslint/recommended",
@@ -66,16 +68,7 @@ module.exports = {
     "import/order": [
       "error",
       {
-        groups: [
-          "builtin",
-          "external",
-          "internal",
-          "parent",
-          "sibling",
-          "index",
-          "object",
-          "type",
-        ],
+        groups: ["builtin", "external", "internal", "parent", "sibling", "index", "object", "type"],
         alphabetize: {
           order: "asc",
           caseInsensitive: true,

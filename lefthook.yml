@@ -4,10 +4,10 @@ pre-commit:
     check-branch:
       run: node ./scripts/protect-branch.js
     lint:
-      glob: "*.{js,ts,jsx,tsx}"
-      run: yarn lint
+      run: npx lerna run --stream lint --since HEAD --exclude-dependents
+    pretty:
+      run: npx lerna run --stream pretty --since HEAD --exclude-dependents
     types:
-      glob: "*.{js,ts, jsx, tsx}"
       run: yarn compile
 commit-msg:
   parallel: true

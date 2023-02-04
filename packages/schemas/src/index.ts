@@ -1,3 +1,5 @@
-import ".";
-
-console.log("Hello from schemas");
+export interface User {
+  id: string;
+  email: string;
+  name?: string;
+}

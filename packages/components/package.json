@@ -7,9 +7,16 @@
     "ui",
     "component"
   ],
-  "author": "saikat-samanta <saikatsamanta737@gmail.com>",
   "homepage": "https://github.com/saikat-samanta/cv-artist/tree/main/packages/components#readme",
+  "bugs": {
+    "url": "https://github.com/saikat-samanta/cv-artist/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/saikat-samanta/cv-artist.git"
+  },
   "license": "MIT",
+  "author": "saikat-samanta <saikatsamanta737@gmail.com>",
   "exports": {
     "import": "./dist/tsc/index.js",
     "require": "./dist/umd/index.js"
@@ -23,23 +30,14 @@
   "files": [
     "dist"
   ],
-  "publishConfig": {
-    "registry": "https://registry.yarnpkg.com"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/saikat-samanta/cv-artist.git"
-  },
   "scripts": {
-    "start": "start-storybook -p 6006 --config-dir ../../.storybook",
     "build": "webpack --config ../../webpack.config.js",
-    "compile": "tsc --build",
     "build:storybook": "build-storybook --config-dir ../../.storybook",
+    "compile": "tsc --build",
     "lint": "eslint '**/*.*' --fix --ignore-path ../../.eslintignore --cache",
+    "pretty": "prettier --write . --ignore-path ../../.prettierignore && sort-package-json",
+    "start": "start-storybook -p 6006 --config-dir ../../.storybook",
     "test": "node ./__tests__/components.test.js"
-  },
-  "bugs": {
-    "url": "https://github.com/saikat-samanta/cv-artist/issues"
   },
   "dependencies": {
     "react": "*",
@@ -49,5 +47,8 @@
   "peerDependencies": {
     "react": "*",
     "react-dom": "*"
+  },
+  "publishConfig": {
+    "registry": "https://registry.yarnpkg.com"
   }
 }

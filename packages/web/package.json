@@ -5,9 +5,16 @@
   "keywords": [
     "website"
   ],
-  "author": "saikat-samanta <saikatsamanta737@gmail.com>",
   "homepage": "https://github.com/saikat-samanta/cv-artist/tree/main/packages/web#readme",
+  "bugs": {
+    "url": "https://github.com/saikat-samanta/cv-artist/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/saikat-samanta/cv-artist.git"
+  },
   "license": "MIT",
+  "author": "saikat-samanta <saikatsamanta737@gmail.com>",
   "exports": {
     "import": "./dist/tsc/index.js",
     "require": "./dist/umd/index.js"
@@ -21,22 +28,13 @@
   "files": [
     "dist"
   ],
-  "publishConfig": {
-    "registry": "https://registry.yarnpkg.com"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/saikat-samanta/cv-artist.git"
-  },
   "scripts": {
-    "start": "webpack serve --config ../../webpack.config.js  --env web",
     "build": "webpack --config ../../webpack.config.js --env web",
     "compile": "tsc --build",
     "lint": "eslint '**/*.*' --fix --ignore-path ../../.eslintignore --cache",
+    "pretty": "prettier --write . --ignore-path ../../.prettierignore && sort-package-json",
+    "start": "webpack serve --config ../../webpack.config.js  --env web",
     "test": "node ./__tests__/web.test.js"
-  },
-  "bugs": {
-    "url": "https://github.com/saikat-samanta/cv-artist/issues"
   },
   "dependencies": {
     "react": "^18.2.0",
@@ -51,5 +49,8 @@
     "@types/react-dom": "^18.0.10",
     "react": "^18.2.0",
     "react-dom": "^18.2.0"
+  },
+  "publishConfig": {
+    "registry": "https://registry.yarnpkg.com"
   }
 }

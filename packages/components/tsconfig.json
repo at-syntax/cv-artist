@@ -1,11 +1,16 @@
 {
-    "extends": "../../tsconfig.base.json",
-    "include": [
-        "./src"
-    ],
-    "compilerOptions": {
-        "outDir": "./dist/tsc",
-        "declarationDir": "./dist/types",
-        "rootDir": "./src"
+  "extends": "../../tsconfig.base.json",
+  "include": ["./src"],
+  "compilerOptions": {
+    "outDir": "./dist/tsc",
+    "declarationDir": "./dist/types",
+    "rootDir": "./src"
+  },
+  "references": [
+    {
+      "path": "../schemas",
+      "prepend": false
     }
+  ],
+  "exclude": ["node_modules"]
 }

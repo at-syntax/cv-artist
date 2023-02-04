@@ -6,9 +6,16 @@
     "Node",
     "Typescript"
   ],
-  "author": "saikat-samanta <saikatsamanta737@gmail.com>",
   "homepage": "https://github.com/saikat-samanta/cv-artist/tree/main/packages/server#readme",
+  "bugs": {
+    "url": "https://github.com/at-syntax/cv-artist/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/at-syntax/cv-artist.git"
+  },
   "license": "MIT",
+  "author": "saikat-samanta <saikatsamanta737@gmail.com>",
   "main": "dist/index.js",
   "directories": {
     "dist": "dist"
@@ -16,32 +23,26 @@
   "files": [
     "dist"
   ],
-  "publishConfig": {
-    "registry": "https://registry.yarnpkg.com"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/at-syntax/cv-artist.git"
-  },
   "scripts": {
     "build": "tsc --build",
     "compile": "tsc --build",
     "lint": "eslint '**/*.*' --fix --ignore-path ../../.eslintignore --cache",
+    "pretty": "prettier --write . --ignore-path ../../.prettierignore && sort-package-json",
+    "start": "concurrently --kill-others 'yarn start:tsc' 'wait-on ./dist/tsc/index.js && yarn start:nodemon'",
     "start:nodemon": "nodemon dist/tsc/index.js",
     "start:tsc": "tsc --build --watch",
-    "start": "concurrently --kill-others 'yarn start:tsc' 'wait-on ./dist/tsc/index.js && yarn start:nodemon'",
     "test": "node ./__tests__/server.test.js"
   },
-  "bugs": {
-    "url": "https://github.com/at-syntax/cv-artist/issues"
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.18.2"
   },
   "devDependencies": {
     "@types/cors": "^2.8.13",
     "@types/express": "^4.17.17",
     "nodemon": "^2.0.20"
   },
-  "dependencies": {
-    "cors": "^2.8.5",
-    "express": "^4.18.2"
+  "publishConfig": {
+    "registry": "https://registry.yarnpkg.com"
   }
 }

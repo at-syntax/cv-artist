@@ -1,8 +1,28 @@
 {
   "name": "cv-artist",
-  "private": true,
   "version": "1.0.0",
+  "private": true,
   "description": "Generate resume",
+  "keywords": [
+    "lerna",
+    "typescript",
+    "react"
+  ],
+  "homepage": "https://github.com/saikat-samanta/cv-artist#readme",
+  "bugs": {
+    "url": "https://github.com/saikat-samanta/cv-artist/issues"
+  },
+  "repository": "git+https://github.com/saikat-samanta/cv-artist.git",
+  "license": "MIT",
+  "author": "saikat-samanta <saikatsamanta737@gmail.com>",
+  "workspaces": {
+    "packages": [
+      "packages/*"
+    ],
+    "nohoist": [
+      "**/*"
+    ]
+  },
   "scripts": {
     "build": "yarn compile && lerna run build --parallel",
     "build:components": "yarn compile:components && lerna run --scope @cv-artist/components build --parallel",
@@ -15,32 +35,22 @@
     "compile:server": "lerna run --scope @cv-artist/server compile --stream --include-dependencies",
     "compile:web": "lerna run --scope @cv-artist/web compile --stream --include-dependencies",
     "lint": "lerna run lint --stream",
+    "lint:components": "lerna run --scope @cv-artist/components lint --stream",
+    "lint:schemas": "lerna run --scope @cv-artist/schemas lint --stream",
+    "lint:server": "lerna run --scope @cv-artist/server lint --stream",
+    "lint:web": "lerna run --scope @cv-artist/web lint --stream",
+    "pretty": "lerna run pretty --parallel && sort-package-json",
+    "pretty:components": "lerna run --scope @cv-artist/components pretty --stream",
+    "pretty:schemas": "lerna run --scope @cv-artist/schemas pretty --stream",
+    "pretty:server": "lerna run --scope @cv-artist/server pretty --stream",
+    "pretty:web": "lerna run --scope @cv-artist/web pretty --stream",
     "start": "lerna run start --stream",
     "start:components": "yarn compile:components && lerna run --scope @cv-artist/components start --stream",
     "start:server": "yarn compile:server && node -r ./dotenv.config.js node_modules/.bin/lerna run --scope @cv-artist/server start --stream",
     "start:web": "yarn compile:web && lerna run --scope @cv-artist/web start --stream",
     "test": "test"
   },
-  "repository": "git+https://github.com/saikat-samanta/cv-artist.git",
-  "keywords": [
-    "lerna",
-    "typescript",
-    "react"
-  ],
-  "author": "saikat-samanta <saikatsamanta737@gmail.com>",
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/saikat-samanta/cv-artist/issues"
-  },
-  "homepage": "https://github.com/saikat-samanta/cv-artist#readme",
-  "workspaces": {
-    "packages": [
-      "packages/*"
-    ],
-    "nohoist": [
-      "**/*"
-    ]
-  },
+  "dependencies": {},
   "devDependencies": {
     "@arkweid/lefthook": "^0.7.7",
     "@babel/core": "^7.20.12",
@@ -63,11 +73,14 @@
     "css-loader": "^6.7.3",
     "dotenv": "^16.0.3",
     "eslint": "^8.33.0",
-    "eslint-config-airbnb-base": "^15.0.0",
+    "eslint-config-airbnb": "^19.0.4",
+    "eslint-config-airbnb-typescript": "^17.0.0",
     "eslint-config-prettier": "^8.6.0",
     "eslint-plugin-import": "^2.27.5",
+    "eslint-plugin-jsx-a11y": "^6.7.1",
     "eslint-plugin-prettier": "^4.2.1",
     "eslint-plugin-react": "^7.32.2",
+    "eslint-plugin-react-hooks": "^4.6.0",
     "eslint-plugin-storybook": "^0.6.10",
     "html-webpack-plugin": "^5.5.0",
     "lerna": "^6.4.1",
@@ -75,6 +88,7 @@
     "prettier": "^2.8.3",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
+    "sort-package-json": "^2.4.1",
     "ts-loader": "^9.4.2",
     "tslib": "^2.5.0",
     "typescript": "^4.9.4",
@@ -82,6 +96,5 @@
     "webpack": "^5.75.0",
     "webpack-cli": "^5.0.1",
     "webpack-dev-server": "^4.11.1"
-  },
-  "dependencies": {}
+  }
 }

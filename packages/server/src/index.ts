@@ -2,6 +2,7 @@ import cors from "cors";
 import express from "express";
 import type { NextFunction, Request, Response } from "express";
 
+// # express app
 const app = express();
 const PORT = process.env.PORT || 4000;
 
@@ -14,23 +15,15 @@ app.use(express.json());
 /**
  * This middleware will log the API performance stats.
  */
-app.use(
-  (
-    req: Request<unknown, unknown, unknown, unknown>,
-    res: Response<unknown>,
-    next: NextFunction,
-  ) => {
-    const start = Date.now();
-    res.once("finish", () => {
-      const duration = Date.now() - start;
-      // eslint-disable-next-line no-console
-      console.log(
-        `\x1b[43m${req.originalUrl}\x1b[0m\x1b[33m response time: \x1b[0m\x1b[41m${duration} ms\x1b[0m`,
-      );
-    });
-    next();
-  },
-);
+app.use((req: Request<unknown, unknown, unknown, unknown>, res: Response<unknown>, next: NextFunction) => {
+  const start = Date.now();
+  res.once("finish", () => {
+    const duration = Date.now() - start;
+    // eslint-disable-next-line no-console
+    console.log(`\x1b[43m${req.originalUrl}\x1b[0m\x1b[33m response time: \x1b[0m\x1b[41m${duration} ms\x1b[0m`);
+  });
+  next();
+});
 
 // #endregion
 
@@ -44,6 +37,6 @@ app.get("/", (_req, res) => {
 
 app.listen(PORT, () => {
   console.log(
-    `\x1b[42m Server started on port ${PORT} \x1b[0m\n\x1b[41m API response time should be under 1500 ms \x1b[0m`,
+    `\x1b[42m Server started on port ${PORT} \x1b[0m\n\x1b[41m API response time should be under 1500 ms \x1b[0m`
   );
 });
