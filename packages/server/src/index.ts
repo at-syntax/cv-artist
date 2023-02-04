@@ -1,5 +1,6 @@
-import express, { NextFunction, Request, Response } from "express";
 import cors from "cors";
+import express from "express";
+import type { NextFunction, Request, Response } from "express";
 
 const app = express();
 const PORT = process.env.PORT || 4000;
@@ -33,9 +34,9 @@ app.use(
 
 // #endregion
 
-/********************************************
+/** ******************************************
  * # Create your API here #
- ********************************************/
+ ******************************************* */
 
 app.get("/", (_req, res) => {
   res.status(200).send("CV Artist");

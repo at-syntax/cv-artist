@@ -36,6 +36,7 @@
     "strictFunctionTypes": true
   },
   "exclude": [
+    ".eslintrc.js",
     "node_modules",
     "**/*.spec.ts"
   ]

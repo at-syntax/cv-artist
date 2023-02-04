@@ -5,7 +5,7 @@ pre-commit:
       run: node ./scripts/protect-branch.js
     lint:
       glob: "*.{js,ts,jsx,tsx}"
-      run: yarn eslint {staged_files}
+      run: yarn lint
     types:
       glob: "*.{js,ts, jsx, tsx}"
       run: yarn compile
