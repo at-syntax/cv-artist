@@ -4,8 +4,18 @@
         "./src"
     ],
     "compilerOptions": {
+        "module": "CommonJS",
         "outDir": "./dist/tsc",
         "declarationDir": "./dist/types",
         "rootDir": "./src"
-    }
+    },
+    "references": [
+        {
+            "path": "../schemas",
+            "prepend": false
+        }
+    ],
+    "exclude": [
+        "node_modules"
+    ]
 }

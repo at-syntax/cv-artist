@@ -1,1 +1,2 @@
-console.log("Hello from components");
+export { Button } from "./components/Button";
+export { Footer } from "./components/Footer";
