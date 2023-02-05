@@ -1,5 +1,11 @@
 # CV ARTIST
 
+<style>
+  .buttonless button {
+    display: none;
+  }
+</style>
+
 ```text
    _______      __           _____ _______ _____  _____ _______
   / ____\ \    / /     /\   |  __ \__   __|_   _|/ ____|__   __|
@@ -60,6 +66,13 @@ yarn
 
 ```sh
 yarn start
+```
+
+```md
+This will start the packages in below ports
+component: 6006
+server: 4000
+web: 3000
 ```
 
 - Run `tsc` compiler:
