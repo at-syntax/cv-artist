@@ -1,11 +1,5 @@
 # CV ARTIST
 
-<style>
-  .buttonless button {
-    display: none;
-  }
-</style>
-
 ```text
    _______      __           _____ _______ _____  _____ _______
   / ____\ \    / /     /\   |  __ \__   __|_   _|/ ____|__   __|
