@@ -1,6 +1,6 @@
 const { join } = require("path");
 const { readFile } = require("fs");
-const { spawn, exec } = require("child_process");
+const { exec } = require("child_process");
 const util = require("util");
 const readFilePromisified = util.promisify(readFile);
 
