@@ -3,5 +3,12 @@
   "packages": ["packages/*"],
   "useWorkspaces": true,
   "version": "0.0.0",
-  "npmClient": "yarn"
+  "npmClient": "yarn",
+  "command": {
+    "version": {
+      "allowBranch": "master",
+      "conventionalCommits": true,
+      "conventionalPrerelease": true
+    }
+  }
 }

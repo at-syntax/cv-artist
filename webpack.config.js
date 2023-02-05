@@ -1,6 +1,7 @@
 const path = require("path");
 const process = require("process");
-const { ProgressPlugin } = require("webpack"); // to access built-in plugins
+const webpack = require("webpack");
+const TerserPlugin = require("terser-webpack-plugin");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 
@@ -51,12 +52,22 @@ function generateWebpackConfig(env) {
       index: "./src/",
     },
     output: {
+      asyncChunks: true,
       path: path.resolve(process.cwd(), "dist/umd"),
       filename: "[name].js",
       clean: true,
       libraryTarget: "umd",
       globalObject: "this", // https://webpack.js.org/configuration/output/#outputglobalobject
       publicPath: "", // TODO: Bug https://stackoverflow.com/questions/64294706/webpack5-automatic-publicpath-is-not-supported-in-this-browser
+    },
+
+    optimization: {
+      minimize: true,
+      minimizer: [
+        new TerserPlugin({
+          parallel: true,
+        }),
+      ],
     },
 
     // which file should be handle. (for typescript)
@@ -117,12 +128,11 @@ function generateWebpackConfig(env) {
     },
     plugins: [
       // Gives the build progress
-      new ProgressPlugin(),
+      new webpack.ProgressPlugin(),
       // This plugin extracts CSS into separate files. It creates a CSS file per JS file which contains CSS. It supports On-Demand-Loading of CSS and SourceMaps (if source maps are enabled).
       new MiniCssExtractPlugin({
         filename: env.production !== true ? "[name].css" : "[contenthash].css",
-        chunkFilename:
-          env.production !== true ? "[id].css" : "[id].[contenthash].css",
+        chunkFilename: env.production !== true ? "[id].css" : "[id].[contenthash].css",
       }),
     ],
   };

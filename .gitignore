@@ -9,4 +9,5 @@ storybook-static
 .eslintcache
 .DS_STORE
 .env
+.env.local
 .lighthouseci

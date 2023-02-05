@@ -3,6 +3,7 @@
   "prettier.configPath": "./.prettierrc.json",
   "conventionalCommits.emojiFormat": "emoji",
   "conventionalCommits.scopes": [
+    "cv-artist",
     "@cv-artist/components",
     "@cv-artist/schemas",
     "@cv-artist/server",

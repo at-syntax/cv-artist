@@ -76,17 +76,4 @@ async function getInternalDependencyGraph(isMermaid) {
   return graph;
 }
 
-/**
- * Get package-name:ports dictionary
- */
-async function getPortsDictionary() {
-  let graph = await execProcess("yarn workspaces info");
-  const dependencies = Object.keys(graph);
-  const basePortNumber = 3000;
-  const portsDictionary = dependencies.reduce((acc, curr) => {
-    return { ...acc, [curr]: basePortNumber + Object.keys(acc).length };
-  }, {});
-  return portsDictionary;
-}
-
-module.exports = { getReleaseTag, execProcess, getInternalDependencyGraph, getPortsDictionary };
+module.exports = { getReleaseTag, execProcess, getInternalDependencyGraph };
