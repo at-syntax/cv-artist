@@ -36,6 +36,7 @@
     "docs": "typedoc src/index.tsx",
     "lint": "eslint '**/*.*' --fix --ignore-path ../../.eslintignore --cache",
     "pretty": "prettier --write . --ignore-path ../../.prettierignore && sort-package-json",
+    "publish:package": "yarn publish",
     "start": "webpack serve --port 3000 --config ../../webpack.config.js  --env web",
     "test": "node ./__tests__/web.test.js"
   },

@@ -34,6 +34,7 @@
     "docs": "apidoc -i src -o docs -f '.*\\.ts$' -c ../../apidoc.config.json",
     "lint": "eslint '**/*.*' --fix --ignore-path ../../.eslintignore --cache",
     "pretty": "prettier --write . --ignore-path ../../.prettierignore && sort-package-json",
+    "publish:package": "yarn publish",
     "start": "concurrently --kill-others 'yarn start:tsc' 'wait-on ./dist/tsc/index.js && yarn start:nodemon'",
     "start:nodemon": "node -r ../../dotenv.config.js .",
     "start:tsc": "tsc --build --watch",
