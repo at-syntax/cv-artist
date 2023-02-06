@@ -1,6 +1,6 @@
 {
   "name": "@cv-artist/server",
-  "version": "0.0.0",
+  "version": "0.1.0-alpha.0",
   "description": "Server side",
   "keywords": [
     "Node",
@@ -40,7 +40,7 @@
     "test": "node ./__tests__/server.test.js"
   },
   "dependencies": {
-    "@cv-artist/schemas": "^0.0.0",
+    "@cv-artist/schemas": "^0.1.0-alpha.0",
     "cors": "^2.8.5",
     "express": "^4.18.2"
   },
