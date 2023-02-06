@@ -33,6 +33,8 @@
     "build": "webpack --config ../../webpack.config.js",
     "clean": "rm -rf node_modules dist",
     "compile": "tsc --build",
+    "predocs": "rm -rf docs",
+    "docs": "typedoc src/index.ts",
     "lint": "eslint '**/*.*' --fix --ignore-path ../../.eslintignore --cache",
     "pretty": "prettier --write . --ignore-path ../../.prettierignore && sort-package-json",
     "start": "node dist/umd/index.js",

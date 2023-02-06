@@ -32,6 +32,8 @@
     "build": "webpack --config ../../webpack.config.js --env web",
     "clean": "rm -rf node_modules dist",
     "compile": "tsc --build",
+    "predocs": "rm -rf docs",
+    "docs": "typedoc src/index.tsx",
     "lint": "eslint '**/*.*' --fix --ignore-path ../../.eslintignore --cache",
     "pretty": "prettier --write . --ignore-path ../../.prettierignore && sort-package-json",
     "start": "webpack serve --port 3000 --config ../../webpack.config.js  --env web",

@@ -35,6 +35,8 @@
     "build:storybook": "build-storybook --config-dir ../../.storybook",
     "clean": "rm -rf node_modules dist",
     "compile": "tsc --build",
+    "predocs": "rm -rf docs",
+    "docs": "typedoc src/index.ts",
     "lint": "eslint '**/*.*' --fix --ignore-path ../../.eslintignore --cache",
     "pretty": "prettier --write . --ignore-path ../../.prettierignore && sort-package-json",
     "start": "start-storybook -p 6006 --config-dir ../../.storybook",

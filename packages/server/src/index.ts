@@ -30,6 +30,16 @@ app.use((req: Request<unknown, unknown, unknown, unknown>, res: Response<unknown
  * # Create your API here #
  ******************************************* */
 
+/**
+ *
+ * @api {get} / Home
+ * @apiName home
+ * @apiGroup Home
+ *
+ *
+ * @apiSuccess (200) {String} Response CV Artist
+ *
+ */
 app.get("/", (_req, res) => {
   res.status(200).send("CV Artist");
 });

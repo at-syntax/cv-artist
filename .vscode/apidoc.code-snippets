@@ -1,0 +1,161 @@
+{
+  "apiDocumentation": {
+    "scope": "javascript,typescript",
+    "prefix": "@apiDoc",
+    "body": [
+      "/**",
+      " * ",
+      " * @api {${1:method}} /${2:path} ${3:title}",
+      " * @apiName ${4:apiName}",
+      " * @apiGroup ${5:group}",
+      " * @apiVersion  ${6:major}.${7:minor}.${8:patch}",
+      " * ",
+      " * ",
+      " * @apiParam  {${9:String}} ${10:paramName} ${11:description}",
+      " * ",
+      " * @apiSuccess ${12:(${13:200})} {${14:type}} ${15:name} ${16:description}",
+      " * ",
+      " * @apiParamExample  {${17:type}} ${18:Request-Example:}",
+      " * {",
+      " *     ${19:property} : ${20:value}",
+      " * }",
+      " * ",
+      " * ",
+      " * @apiSuccessExample {${21:type}} ${22:Success-Response:}",
+      " * {",
+      " *     ${23:property} : ${24:value}",
+      " * }",
+      " * ",
+      " * ",
+      " */"
+    ],
+    "description": "ApiDoc Documentation"
+  },
+  "apiParam": {
+    "scope": "javascript,typescript",
+    "prefix": "@apiParam",
+    "body": ["@apiParam  {${String}} ${name} ${description}"],
+    "description": "ApiDoc Parameter"
+  },
+  "apiSuccess": {
+    "scope": "javascript,typescript",
+    "prefix": "@apiSuccess",
+    "body": [
+      "@apiSuccess ${group:(${code:200})} {${type}} ${name} ${description}"
+    ],
+    "description": "ApiDoc Success"
+  },
+  "apiHeader": {
+    "scope": "javascript,typescript",
+    "prefix": "@apiHeader",
+    "body": [
+      "@apiHeader ${group:(${code:200})} {${type}} ${field} ${description}"
+    ],
+    "description": "ApiDoc Header"
+  },
+  "apiDeprecated": {
+    "scope": "javascript,typescript",
+    "prefix": "@apiDeprecated",
+    "body": ["@apiDeprecated ${text}"],
+    "description": "ApiDoc Deprecated"
+  },
+  "apiDescription": {
+    "scope": "javascript,typescript",
+    "prefix": "@apiDescription",
+    "body": ["@apiDescription ${text}"],
+    "description": "ApiDoc Description"
+  },
+  "api": {
+    "scope": "javascript,typescript",
+    "prefix": "@api",
+    "body": ["@api {${method}} /${path} ${title}"],
+    "description": "ApiDoc Api"
+  },
+  "apiName": {
+    "scope": "javascript,typescript",
+    "prefix": "@apiName",
+    "body": ["@apiName ${name}"],
+    "description": "ApiDoc Name"
+  },
+  "apiGroup": {
+    "scope": "javascript,typescript",
+    "prefix": "@apiGroup",
+    "body": ["@apiGroup ${group}"],
+    "description": "ApiDoc Group"
+  },
+  "apiUse": {
+    "scope": "javascript,typescript",
+    "prefix": "@apiUse",
+    "body": ["@apiUse ${name}"],
+    "description": "ApiDoc Use"
+  },
+  "apiVersion": {
+    "scope": "javascript,typescript",
+    "prefix": "@apiVersion",
+    "body": ["@apiVersion  ${major}.${minor}.${patch}"],
+    "description": "ApiDoc Version"
+  },
+  "apiDefine": {
+    "scope": "javascript,typescript",
+    "prefix": "@apiDefine",
+    "body": ["@apiDefine ${name} ${title}", "*    ${description} "],
+    "description": "ApiDoc Define"
+  },
+  "apiErrorExample": {
+    "scope": "javascript,typescript",
+    "prefix": "@apiErrorExample",
+    "body": [
+      "@apiErrorExample {${type}} ${title:Error-Response:}",
+      "    ${example}"
+    ],
+    "description": "ApiDoc Error Example"
+  },
+  "apiParamExample": {
+    "scope": "javascript,typescript",
+    "prefix": "@apiParamExample",
+    "body": [
+      "@apiParamExample  {${type}} ${title:Request-Example:}",
+      "*    ${example}"
+    ],
+    "description": "ApiDoc Param Example"
+  },
+  "apiSuccessExample": {
+    "scope": "javascript,typescript",
+    "prefix": "@apiSuccessExample ",
+    "body": [
+      "@apiSuccessExample {${type}} ${title:Success-Response:}",
+      "*    ${example}"
+    ],
+    "description": "ApiDoc Param Example"
+  },
+  "apiHeaderExample": {
+    "scope": "javascript,typescript",
+    "prefix": "@apiHeaderExample",
+    "body": [
+      "@apiHeaderExample {${type}} ${title:Request-Example:}",
+      "*    ${example}"
+    ],
+    "description": "ApiDoc Header Example"
+  },
+  "apiExample": {
+    "scope": "javascript,typescript",
+    "prefix": "@apiExample",
+    "body": [
+      "@apiExample {${type}} ${title:Example usage:}",
+      "*    ${example}"
+    ],
+    "description": "ApiDoc API Example"
+  },
+  "apiSampleRequest": {
+    "scope": "javascript,typescript",
+    "prefix": "@apiSampleRequest",
+    "body": ["@apiSampleRequest ${url}"],
+    "description": "ApiDoc Sample Request"
+  },
+  "apiPermission": {
+    "scope": "javascript,typescript",
+    "prefix": "@apiPermission",
+    "body": ["@apiPermission ${name}"],
+    "description": "ApiDoc Permission"
+  }
+}
