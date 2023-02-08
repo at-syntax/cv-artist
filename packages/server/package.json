@@ -30,19 +30,21 @@
     "build": "tsc --build",
     "clean": "rm -rf node_modules dist",
     "compile": "tsc --build",
+    "postcompile": "rm -rf ./dist/tsc/views && cp -r -v ./src/views ./dist/tsc/views",
     "predocs": "rm -rf docs",
     "docs": "apidoc -i src -o docs -f '.*\\.ts$' -c ../../apidoc.config.json",
     "lint": "eslint '**/*.*' --fix --ignore-path ../../.eslintignore --cache",
     "pretty": "prettier --write . --ignore-path ../../.prettierignore && sort-package-json",
     "publish:package": "yarn publish",
     "start": "concurrently --kill-others 'yarn start:tsc' 'wait-on ./dist/tsc/index.js && yarn start:nodemon'",
-    "start:nodemon": "node -r ../../dotenv.config.js .",
+    "start:nodemon": "nodemon -r ../../dotenv.config.js -e ejs .",
     "start:tsc": "tsc --build --watch",
     "test": "node ./__tests__/server.test.js"
   },
   "dependencies": {
     "@cv-artist/schemas": "^0.0.0",
     "cors": "^2.8.5",
+    "ejs": "^3.1.8",
     "express": "^4.18.2"
   },
   "devDependencies": {

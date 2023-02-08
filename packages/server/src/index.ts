@@ -1,3 +1,4 @@
+import path from "path";
 import cors from "cors";
 import express from "express";
 import type { NextFunction, Request, Response } from "express";
@@ -9,6 +10,12 @@ const PORT = process.env.PORT || 4000;
 app.use(cors());
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
+
+// # set the view engine to ejs
+const viewPath = process.env.NODE_ENV === "production" ? "dist/tsc/views" : "src/views";
+const views = path.join(process.cwd(), viewPath);
+app.set("view engine", "ejs");
+app.set("views", views);
 
 // #region performance logger
 /**
@@ -41,7 +48,7 @@ app.use((req: Request<unknown, unknown, unknown, unknown>, res: Response<unknown
  *
  */
 app.get("/", (_req, res) => {
-  res.status(200).send("CV Artist");
+  res.render("pages/index");
 });
 
 app.listen(PORT, () => {

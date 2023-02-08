@@ -25,4 +25,7 @@
   "eslint.alwaysShowStatus": true,
   "git.pruneOnFetch": true,
   "editor.tabSize": 2,
+  "[html]": {
+    "editor.defaultFormatter": "vscode.html-language-features"
+  },
 }
