@@ -3,13 +3,51 @@ import cors from "cors";
 import express from "express";
 import type { NextFunction, Request, Response } from "express";
 
-const app = express();
-const PORT = process.env.PORT || 4000;
+const REST_PORT = process.env.REST_PORT || 4000;
+const WEB_PORT = process.env.WEB_PORT || 3000;
+const host = /cvartist.com/;
+const localhost = /localhost/;
+const origin = process.env.NODE_ENV === "production" ? host : localhost;
+/** **************************
+ * # Initialize web app server
+ ************************** */
+export const web = express();
+
+// #region Middleware
+web.use(
+  cors({
+    credentials: true,
+    origin,
+  })
+);
+
+/** ******************************************
+ * # Link Web app here #
+ ******************************************* */
+
+web.get("/*", (_, res) => {
+  res.send("Web app");
+});
+
+export const webServer = web.listen(WEB_PORT, () => {
+  console.log(`\x1b[42m Web started on port ${WEB_PORT} \x1b[0m`);
+});
+
+/** **********************************
+ * # Initialize Rest APIs
+ ********************************** */
+export const app = express();
 
 // # Using middleware
-app.use(cors());
+app.use(
+  cors({
+    credentials: true,
+    origin,
+  })
+);
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
+app.use(express.static("public"));
 
 // # set the view engine to ejs
 const viewPath = process.env.NODE_ENV === "production" ? "dist/tsc/views" : "src/views";
@@ -51,8 +89,36 @@ app.get("/", (_req, res) => {
   res.render("pages/index");
 });
 
-app.listen(PORT, () => {
+/**
+ *
+ * @api {get} /about About
+ * @apiName about
+ * @apiGroup About
+ *
+ *
+ * @apiSuccess (200) {String} Response CV Artist
+ *
+ */
+app.get("/about", (_req, res) => {
+  res.render("pages/about");
+});
+
+/**
+ *
+ * @api {get} /faq FAQ
+ * @apiName faq
+ * @apiGroup FAQ
+ *
+ *
+ * @apiSuccess (200) {String} Response CV Artist
+ *
+ */
+app.get("/faq", (_req, res) => {
+  res.render("pages/faq");
+});
+
+export const restAPIServer = app.listen(REST_PORT, () => {
   console.log(
-    `\x1b[42m Server started on port ${PORT} \x1b[0m\n\x1b[41m API response time should be under 1500 ms \x1b[0m`
+    `\x1b[42m Server started on port ${REST_PORT} \x1b[0m\n\x1b[41m API response time should be under 1500 ms \x1b[0m`
   );
 });

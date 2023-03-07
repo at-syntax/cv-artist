@@ -41,6 +41,7 @@
     "test": "node ./__tests__/web.test.js"
   },
   "dependencies": {
+    "@cv-artist/components": "^0.0.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0"
   },
