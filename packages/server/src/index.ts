@@ -3,8 +3,8 @@ import cors from "cors";
 import express from "express";
 import type { NextFunction, Request, Response } from "express";
 
-const REST_PORT = process.env.REST_PORT || 4000;
-const WEB_PORT = process.env.WEB_PORT || 3000;
+const REST_PORT = process.env.REST_PORT || 9000;
+const WEB_PORT = process.env.WEB_PORT || 4000;
 const host = /cvartist.com/;
 const localhost = /localhost/;
 const origin = process.env.NODE_ENV === "production" ? host : localhost;
@@ -25,8 +25,21 @@ web.use(
  * # Link Web app here #
  ******************************************* */
 
+let webPath: string | undefined;
+try {
+  webPath = path.dirname(require.resolve("@cv-artist/web"));
+} catch (e) {
+  // eslint-disable-next-line no-console
+  console.log("Peer deps missing");
+}
+if (webPath !== undefined) {
+  web.use(express.static(webPath));
+}
+
 web.get("/*", (_, res) => {
-  res.send("Web app");
+  if (webPath !== undefined) {
+    res.sendFile(path.join(webPath, "index.html"));
+  }
 });
 
 export const webServer = web.listen(WEB_PORT, () => {
