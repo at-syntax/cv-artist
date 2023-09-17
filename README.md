@@ -9,6 +9,7 @@
   \_____|   \/     /_/    \_\_|  \_\ |_|  |_____|_____/   |_|
 
 ```
+## A online CV maker
 
 ## How to start development?
 
